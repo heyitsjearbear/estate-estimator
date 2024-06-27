@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Estate Estimator</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href={{url_for('static',filename='/css/styles.css')}} rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">
+                <h5>Estate Estimator</h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#eda">EDA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#models">Models</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#api">API</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/header-bg.jpg') }}');">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Project!</div>
+            <div class="masthead-heading text-uppercase">Predicting tomorrow's Houses Today!</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#about">Tell Me More</a>
+        </div>
+    </header>
+
+
+
+
+
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">About</h2>
+                <p>At Estate Estimator, our motivation stems from a deep commitment to revolutionize the real estate
+                    industry through innovative AI predictors. We understand the challenges faced by buyers and sellers
+                    in navigating the complex market, where informed decisions are pivotal yet often hindered by
+                    time-consuming data analysis. By harnessing the power of AI and data science, we aim to empower
+                    individuals with accurate and timely predictions of property values, thereby streamlining the
+                    decision-making process and ensuring confidence in every transaction. Our mission is to provide a
+                    transformative tool that not only enhances efficiency but also sets new standards for transparency
+                    and reliability in real estate transactions.<br><br>Our objectives for this project are to integrate
+                    various types of visualizations for comprehensive data analysis, provide clear insights into housing
+                    market trends, and create a user-friendly website to ensure easy navigation and accessibility. We
+                    hope that our project will significantly enhance decision-making capabilities for stakeholders in
+                    the real estate sector. </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- EDA-->
+    <section class="page-section bg-light" id="eda">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">EDA</h2>
+                <h3 class="section-subheading text-muted">Our EDA section offers a deep dive into our Housing Price
+                    dataset, using a variety of analytical tools and visualizations to uncover meaningful insights and
+                    patterns. Through detailed exploration and statistical summaries, we aim to provide a comprehensive
+                    understanding of the data's characteristics and potential.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src={{url_for('static',filename='img/portfolio/8.webp')}} alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Price vs. Square Feet</div>
+                            <div class="portfolio-caption-subheading text-muted">Scatter Plot</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 2-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src={{url_for('static',filename='img/portfolio/9.webp')}} alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Price vs. Year Built</div>
+                            <div class="portfolio-caption-subheading text-muted">Scatter Plot</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 3-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src={{url_for('static',filename='img/portfolio/10.webp')}} alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Housing Prices in Different Neighborhoods</div>
+                            <div class="portfolio-caption-subheading text-muted">Box Plot</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <!-- Portfolio item 4-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src={{url_for('static',filename='img/portfolio/14.webp')}} alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Correlation Heatmap of Housing Price Prediction Data</div>
+                            <div class="portfolio-caption-subheading text-muted">Heatmap</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <!-- Portfolio item 5-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src={{url_for('static',filename='img/portfolio/12.webp')}} alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Distribution of Housing Prices</div>
+                            <div class="portfolio-caption-subheading text-muted">Histogram</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Portfolio item 6-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src={{url_for('static',filename='img/portfolio/15.webp')}} alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Average House Price Per Year</div>
+                            <div class="portfolio-caption-subheading text-muted">Bar Graph</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Models-->
+    <section class="page-section" id="models">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Models</h2>
+                <div class="row"></div>
+                <h3>Neural Network</h3>
+                <h5>Graph of Training & Validation Loss</h5>
+                <img src={{url_for("static",filename="img/metrics/neural_network_metrics.png")}} alt="...">
+                <p>In this model, we observed a high mean squared error value, indicating significant deviation from the actual outcomes. Additionally, both the training and testing losses were notably elevated, underscoring the model's limited predictive accuracy.</p>
+                
+            </div>
+            <div class="text-center">
+                <div class="row"></div>
+                <h3>Linear Regression</h3>
+                <h5>Graph of Actual vs. Predicted Housing Prices</h5>
+                <iframe width="500" height="500" title="Scatter plot of Actual vs. Predicted Housing Price" src={{url_for('static',filename='img/metrics/actual_vs_predicted_prices.html')}}></iframe>
+                <p>The models demonstrated limited accuracy in predicting actual house prices, as depicted in the graph above. Many of the data points significantly deviate from the dotted red lines, indicating substantial prediction errors. This inaccuracy is further highlighted by a high mean squared error of approximately 2,400,000,000 and mean absolute error of around 40,000.</p>
+            </div>
+            <!--Logos-->
+            <div class="py-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/pythonlogo.png")}}
+                                    alt="..." aria-label="Python Logo" style="width:300px;height:200px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/csshtmllogo.png")}}
+                                    alt="..." aria-label="CSS/HTML Logo" style="width:150px;height:100px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/pandaslogo.png")}}
+                                    alt="..." aria-label="Pandas Logo" style="width:280px;height:200px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/plotlylogo.png")}}
+                                    alt="..." aria-label="Plotly Logo" style="width:300px;height:100px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/seabornlogo.png")}}
+                                    alt="..." aria-label="Seaborn Logo" style="width:240px;height:75px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/sklearnlogo.png")}}
+                                    alt="..." aria-label="Sklearn Logo" style="width:200px;height:100px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/pytorchlogo.png")}}
+                                    alt="..." aria-label="PyTorch Logo" style="width:240px;height:70px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/flasklogo.png")}}
+                                    alt="..." aria-label="Flask Logo" style="width:220px;height:90px"/>
+                        </div>
+                        <div class="col-md-3 col-sm-6 my-3">
+                            <img class="img-fluid img-brand d-block mx-auto" src={{url_for("static",filename="img/logos/startbootstraplogo.png")}}
+                                    alt="..." aria-label="Start Bootstrap Logo" style="width:230px;height:100px"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+    <div class="container">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase">Team</h2>
+        <h3 class="section-subheading text-muted">Meet our team!</h3>
+    </div>
+    <div class="row">
+    <div class="col-lg-4">
+    <div class="team-member">
+                <img class="mx-auto rounded-circle" src={{url_for('static',filename='img/team/jeremiah.jpg')}} alt="..." />
+        <h4>Jeremiah Ramiscal</h4>
+            <p class="text-muted">Instructor</p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+        <img class="mx-auto rounded-circle"
+
+            src={{url_for('static',filename='img/team/Anu.jpg')}} alt="..." />
+        <h4>Anushka Tiwari</h4>
+            <p class="text-muted">Instructor</p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+        <img class="mx-auto rounded-circle" src={{url_for('static',filename='img/team/seoyool.jpg')}} alt="..." />
+        <h4>Seoyool Lee</h4>
+            <p class="text-muted"></p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+        <img class="mx-auto rounded-circle" src={{url_for('static',filename='img/team/farhan.jpg')}} alt="..." />
+         <h4>Farhan Ali</h4>
+            <p class="text-muted"></p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+        <img class="mx-auto rounded-circle"
+    
+src="assets/img/team/.jpg" alt="..." />
+        <h4>Timothy Wen</h4>
+            <p class="text-muted"></p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+        <img class="mx-auto rounded-circle"
+    
+src="assets/img/team/.jpg" alt="..." />
+        <h4>Emerald Barnes</h4>
+            <p class="text-muted"></p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+        <img class="mx-auto rounded-circle"
+    
+src="assets/img/team/.jpg" alt="..." />
+        <h4>WenHui Zhao</h4>
+            <p class="text-muted"></p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <p class="large text-muted"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+    <!-- Timeline-->
+    <section class="page-section" id="timeline">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Timeline</h2>
+                <h3 class="section-subheading text-muted">A timeline of our progress over the last 3 weeks.</h3>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src={{url_for('static', filename='img/timeline/datasetstockimage.jpeg')}}
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Picking The Dataset</h4>
+                            <h4 class="subheading"></h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">We sourced our dataset from Kaggle, ensuring it contained sufficient
+                                high-quality data.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src={{url_for('static', filename='img/timeline/edastockimage.jpeg')}}
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>EDA</h4>
+                            <h4 class="subheading"></h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Our EDA offers a deep dive into our dataset that we chose, using a
+                                variety of analytical tools and visualizations to uncover meaningful insights and
+                                patterns.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src={{url_for('static', filename='img/timeline/trainingstockimage.jpeg')}}
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Training our Models</h4>
+                            <h4 class="subheading"></h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">
+
+                                We trained our model meticulously with high-quality data to strike the right balance,
+                                avoiding the pitfalls of both overfitting and underfitting. This approach ensured that
+                                our model not only learned effectively from the data but also generalized well to new,
+                                unseen examples, resulting in robust and somewhat reliable performance across various
+                                scenarios with housing prices.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src={{url_for('static', filename='img/timeline/websitestockimage.jpeg')}}
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Developing the Website</h4>
+                            <h4 class="subheading"></h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">
+
+                                We crafted our website with a priority on a friendly and intuitive User Interface (UI).
+                                Our goal is to deliver predictions with a minimum accuracy of 60%, ensuring both
+                                usability and reliability for our users.
+
+
+
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- API-->
+    <!--<section class="page-section bg-light" id="api">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">API</h2><br>
+                <form id= "api-form" action="/get-housing-data" method="get>
+                    <label for="zip">Enter Zip Code: </label>
+                    <input type="text" id="zip" name="zip" required>
+                    <button type = "submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    -->
+
+
+
+
+
+    <!-- Conclusion-->
+    <section class="page-section bg-light" id="conclusion">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Conclusion</h2><br>
+                <p>In conclusion, we hope that our models can help both buyers
+                and sellers to find the right prices for their own interests in real estate. Though our current
+                models are highly inaccurate, our next steps to improvement is by spending more time in the
+                preprocessing stage of our EDA and  getting better datasets for our models. In addition, if given more time
+                we can further fine-tune our models to fix its mistakes.</p><br><br><br><br>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="align-items-center">
+                <p>Copyright &copy; AI Camp 2024</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Portfolio Modals-->
+    <!-- Portfolio item 1 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src={{url_for('static', filename='img/close-icon.svg')}}
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2>Price vs. Square Feet</h2>
+                                <p class="text-muted">Scatter Plot</p>
+                                <iframe width="500" height="500" title="price_vs_sq_feet" src="{{url_for('static', filename='visuals/price_squarefeet_scatter.html')}}"></iframe>
+                                <p>This scatter plot with a regression line illustrates the relationship between
+                                    property prices and their square footage, where each blue dot represents an
+                                    individual property. The x-axis denotes square footage, while the y-axis shows the
+                                    price. The red regression line indicates a positive correlation, suggesting that
+                                    larger properties generally command higher prices. Despite this trend, the wide
+                                    dispersion of data points around the line reveals significant variability, implying
+                                    that other factors, such as location and property condition, also influence prices.
+                                    Overall, the plot demonstrates that while there is a general trend of increasing
+                                    price with larger square footage, actual prices can vary considerably.</p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 2 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src={{url_for('static', filename='img/close-icon.svg')}}
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2>Price vs. Year Built</h2>
+                                <p class="text-muted">Scatter Plot</p>
+                                <iframe width="500" height="500" title="Scatter plot of Price vs Yearbuit" src="{{url_for('static',filename='visuals/price_yearbuilt_scatter.html')}}"></iframe>
+                                <p>This scatter line plot shows the relationship between property prices and the year they were built, with each blue dot representing an individual property. The x-axis represents the year built, while the y-axis shows the price. The plot indicates that property prices do not exhibit a strong correlation with the year of construction, as prices remain broadly distributed across all years. Despite the wide range of prices, there is no clear trend suggesting that newer or older properties are consistently more expensive. The overall variability in prices across different construction years implies that factors other than the year built have a more significant impact on property prices.</p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 3 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src={{url_for('static', filename='img/close-icon.svg')}}
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2>Housing Prices in Different Neighborhoods</h2>
+                                <p class="text-muted">Box Plot</p>
+                                <iframe width="500" height="500" title="Housing_price_in_different_neighborhoods" src="{{url_for('static', filename='visuals/housing_boxplot.html')}}"></iframe>
+                                <p>This box plot compares housing prices across different types of neighborhoods: Rural, Suburb, and Urban. The x-axis represents the neighborhood type, while the y-axis shows the price. Each box plot displays the median price (central line), interquartile range (box), and the overall distribution (whiskers and outliers) of prices within each neighborhood. The median prices are similar across all three neighborhoods, hovering around the 200k mark. The interquartile ranges and whiskers indicate that the overall spread of prices is also comparable. However, the presence of outliers, especially on the higher end, suggests that there are some significantly more expensive properties in each neighborhood type. This visualization highlights that while the central tendency and general spread of housing prices are quite similar across rural, suburban, and urban areas, there can still be substantial price variations within each category.</p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 4 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src={{url_for('static', filename='img/close-icon.svg')}}
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2>Correlation Heatmap of Housing Price Prediction Data</h2>
+                                <p class="text-muted">Heatmap</p>
+                                <iframe width = '500' height = '500' title = 'correlation heatmap' src = "{{url_for('static', filename='visuals/correlation_heatmap.html')}}"></iframe>
+                                <p>This heatmap offers a compelling visualization of housing feature correlations. Positive correlations, illustrated in shades of green, highlight features that tend to move in tandem. For instance, the strong positive correlation between price and square footage (0.79) signifies that larger homes typically command higher prices. Conversely, cooler tones of purple and blue represent negative correlations. The weak negative correlation between price and year built (-0.0026) suggests a slight tendency for newer houses to be more expensive, but the effect is negligible. Similarly, the weak negative correlations with certain neighborhoods (around -0.5 for both Neighborhood_Suburb and Neighborhood_Urban) imply that houses in suburban and urban areas might be slightly pricier than those in rural settings. However, it's important to note that the strength of the correlation between price and square footage far outweighs the influence of year built or neighborhood type. This heatmap empowers real estate professionals and potential buyers to prioritize features that hold the most weight when navigating the housing market.</p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 5 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src={{url_for('static', filename='img/close-icon.svg')}}
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2>Distribution of Housing Prices</h2>
+                                <p class="text-muted">Histogram</p>
+                                <iframe width="500" height="500" title="distribution-of_housing_prices" src="{{url_for('static', filename='visuals/distribution_of_housing_prices.html')}}"></iframe>
+                                <p>Examining this histogram provides valuable insights into the distribution of housing prices within this dataset. The most striking feature is the concentration of houses within the $100,000 to $200,000 range, evidenced by the tall bar centered around this price point. This indicates that a significant portion of the market caters to mid-priced housing options. While there are houses available outside this range, both towards lower and higher price points, the histogram reveals a clear drop-off in frequency. This suggests that the market leans towards mid-range options, but still offers some availability of affordable and luxury housing options, albeit to a lesser extent.</p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 6 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src={{url_for('static', filename='img/close-icon.svg')}}
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2>Average House Price Per Year</h2>
+                                <p class="text-muted">Bar Graph</p>
+                                <iframe width="500" height="500" title="avg_house_price" src="{{url_for('static', filename='visuals/cost_house_price_per_year.html')}}"></iframe>
+                                <p>Analyzing this line graph unveils a significant trend in total housing costs. The data exhibits a clear upward trajectory over the years, indicating a sustained rise in overall housing prices. While there might be year-to-year variations, the predominant pattern suggests a consistent increase. This trend signifies a growing financial burden associated with homeownership within the timeframe depicted by the graph. It would be beneficial to explore additional factors, such as inflation rates or changes in housing market dynamics, to gain a more comprehensive understanding of the underlying reasons behind this rising cost of housing.</p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src={{url_for('static',filename='/scripts/scripts.js')}}></script>
+</body>
+
+</html>
